@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+
+# Auth endpoint
+POST        /login                            controllers.auth.SignInController.signIn
+
+# Product endpoint
+->          /products                         controllers.product.ProductRouter
+GET          /external/products               controllers.product.ProductController.getProductExternals
+
+# User endpoint
+GET        /users                         controllers.user.UserController.getAll
+GET        /users/:id                         controllers.user.UserController.getById(id: Long)
+POST       /users                         controllers.user.UserController.save
+PUT        /users/:id                     controllers.user.UserController.update(id: Long)
+DELETE        /users/:id                     controllers.user.UserController.delete(id: Long)
+
+# Order endpoint
+GET        /orders                         controllers.order.OrderController.getAll
+GET        /orders/:id                         controllers.order.OrderController.getById(id: Long)
+POST       /orders                         controllers.order.OrderController.save
+PUT        /orders/:id                     controllers.order.OrderController.update(id: Long)
+DELETE        /orders/:id                     controllers.order.OrderController.delete(id: Long)
